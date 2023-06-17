@@ -3,6 +3,6 @@ import { Navigate } from "react-router-dom";
 
 export const Protected = ({ children }) => {
   // change this to firebase auth
-  const authentication = false;
+  const authentication = true;
   return <>{authentication ? children : <Navigate to={"/auth"} />}</>;
 };

@@ -1,7 +1,14 @@
+import { Navbar } from "../layouts/Navbar";
+import { Button } from "@chakra-ui/react";
+import { AddIcon } from "@chakra-ui/icons";
+
 export const Dashboard = () => {
   return (
     <div>
-      <h1>Dashboard</h1>
+      <Navbar
+        title={"toddle"}
+        rightElement={<Button leftIcon={<AddIcon />}>Create new Board</Button>}
+      />
     </div>
   );
 };
