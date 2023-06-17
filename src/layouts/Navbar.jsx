@@ -11,11 +11,15 @@ export const Navbar = ({ backButton, title, rightElement }) => {
       h={"5rem"}
       px={"5rem"}
       align="center"
-      justify="space-between"
+      justify={["center", null, "space-between"]}
       wrap="wrap"
       bg="white"
       color="white"
       borderBottom={"1px solid #EBEBEB"}
+      position={"fixed"}
+      top={0}
+      left={0}
+      z={100}
     >
       <Flex align="center" mr={5}>
         {backButton && (
