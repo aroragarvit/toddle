@@ -1,11 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import { Dashboard, Auth, Posts, Bookmarks } from "./pages";
+import { Protected } from "./layouts/Protected";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard />,
+    element: (
+      <Protected>
+        <Dashboard />
+      </Protected>
+    ),
   },
   {
     path: "/auth",
@@ -13,11 +17,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/boards/:id",
-    element: <Posts />,
+    element: (
+      <Protected>
+        <Posts />
+      </Protected>
+    ),
   },
   {
     path: "/bookmarks",
-    element: <Bookmarks />,
+    element: (
+      <Protected>
+        <Bookmarks />
+      </Protected>
+    ),
   },
 ]);
 
