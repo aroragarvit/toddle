@@ -1,7 +1,18 @@
 import { Box, Flex, Text, Button } from "@chakra-ui/react";
 import { Navbar } from "../layouts/Navbar";
 import { handleGoogleSignIn } from "../functions/googleSignin";
+import { auth } from "../config/firebaseConfig";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 export const Auth = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (auth.currentUser) {
+      navigate("/");
+    }
+  }, [auth.currentUser]);
+
   return (
     <div>
       <Navbar backButton={false} title="toddle" />
