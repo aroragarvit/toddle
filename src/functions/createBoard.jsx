@@ -10,4 +10,12 @@ export const createBoard = async (boardName) => {
 
     posts: [],
   });
+  const boardId = board.id;
+
+  const userRef = await firestore.collection("users").doc(user.uid);
+
+  await userRef.update({
+    boardsId: firebase.firestore.FieldValue.arrayUnion(boardId),
+    boardsName: firebase.firestore.FieldValue.arrayUnion(boardName),
+  });
 };
