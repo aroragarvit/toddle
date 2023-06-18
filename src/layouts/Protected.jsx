@@ -18,5 +18,5 @@ export const Protected = ({ children }) => {
     return unsubscribe;
   }, []);
 
-  return <>{authenticated ? children : <Navigate to={"/auth"} />}</>;
+  return <>{authenticated ? children : <Navigate to={"/"} />}</>;
 };
