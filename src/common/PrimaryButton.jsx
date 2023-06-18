@@ -12,7 +12,7 @@ export const PrimaryButton = ({ onClick, label, icon }) => {
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.95 }}
       transition={{ type: "spring", stiffness: 700 }}
-        _hover={{ bgColor: "brand.900" }}
+      _hover={{ bgColor: "brand.900" }}
     >
       {label}
     </Button>
