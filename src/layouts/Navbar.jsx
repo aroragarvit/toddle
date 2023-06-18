@@ -9,7 +9,7 @@ export const Navbar = ({ backButton, title, rightElement }) => {
       as="nav"
       w={"full"}
       h={"5rem"}
-      px={"5rem"}
+      px={16}
       align="center"
       justify={["center", null, "space-between"]}
       wrap="wrap"
