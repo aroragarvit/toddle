@@ -46,6 +46,12 @@ export const AddBoard = () => {
         icon={<AddIcon />}
         onClick={onOpen}
         label={"Create new Board"}
+        display={["none", "block"]}
+      />
+      <PrimaryButton
+        icon={<AddIcon />}
+        onClick={onOpen}
+        display={["block", "none"]}
       />
       <Modal
         isOpen={isOpen}

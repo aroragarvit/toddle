@@ -9,9 +9,9 @@ export const Navbar = ({ backButton, title, rightElement }) => {
       as="nav"
       w={"full"}
       h={"5rem"}
-      px={16}
+      px={[4, 8, 16]}
       align="center"
-      justify={["center", null, "space-between"]}
+      justify={["space-between"]}
       wrap="wrap"
       bg="white"
       color="white"

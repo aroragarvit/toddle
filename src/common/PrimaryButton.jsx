@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react";
-import { motion, isValidMotionProp } from "framer-motion";
+import { motion } from "framer-motion";
 
-export const PrimaryButton = ({ onClick, label, icon }) => {
+export const PrimaryButton = ({ onClick, label, icon, ...props }) => {
   return (
     <Button
       as={motion.button}
@@ -13,6 +13,7 @@ export const PrimaryButton = ({ onClick, label, icon }) => {
       whileTap={{ scale: 0.95 }}
       transition={{ type: "spring", stiffness: 700 }}
       _hover={{ bgColor: "brand.900" }}
+      {...props}
     >
       {label}
     </Button>
