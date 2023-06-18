@@ -1,5 +1,6 @@
 import { Box, Flex, Text, Button } from "@chakra-ui/react";
 import { Navbar } from "../layouts/Navbar";
+import { handleGoogleSignIn } from "../functions/googleSignin";
 export const Auth = () => {
   return (
     <div>
@@ -35,7 +36,12 @@ export const Auth = () => {
             <Text fontSize="md" color={"#717171"} mt={2}>
               Please sign in to continue
             </Text>
-            <Button mt={12} w={"full"} rounded="md">
+            <Button
+              mt={12}
+              w={"full"}
+              rounded="md"
+              onClick={handleGoogleSignIn}
+            >
               Sign in with Google
             </Button>
           </Flex>
