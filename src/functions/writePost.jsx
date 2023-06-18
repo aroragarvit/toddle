@@ -6,6 +6,7 @@ export const writePost = async (boardId, postTitle, postContent, imageFile) => {
       postTitle: postTitle,
       postContent: postContent,
       postAuthor: user.uid,
+      postColor: boardDoc.data().boardColor,
       postId: boardId + user.uid,
       postCreatedAt: firebase.firestore.FieldValue.serverTimestamp(),
       postUpdatedAt: firebase.firestore.FieldValue.serverTimestamp(),
