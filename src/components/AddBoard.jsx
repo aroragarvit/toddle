@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import { useState } from "react";
+import { createBoard } from "../functions/createBoard.jsx";
 
 const colors = [
   {
@@ -37,7 +38,8 @@ const colors = [
 
 export const AddBoard = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [selecteColor, setSelectedColor] = useState(0);
+  const [selectedColor, setSelectedColor] = useState(0);
+  const [boardName, setBoardName] = useState("");
   return (
     <div>
       <PrimaryButton
@@ -59,8 +61,13 @@ export const AddBoard = () => {
             <Input
               placeholder="Places around the world"
               size={"lg"}
+              value={boardName}
               // make outline on click brand.100
+              onChange={(e) => {
+                setBoardName(e.target.value);
+              }}
             />
+
             <Text mt={12} fontWeight={"bold"} fontSize={"xl"}>
               Choose post color
             </Text>
@@ -73,16 +80,24 @@ export const AddBoard = () => {
                   rounded="full"
                   key={index}
                   bgColor={color.bg}
-                  border={selecteColor == index ? "1px solid " + color.border : ""}
+                  border={
+                    selectedColor == index ? "1px solid " + color.border : ""
+                  }
                   h={8}
                   w={8}
                   mr={4}
+                  onClick={() => setSelectedColor(index)}
                 />
               ))}
             </Flex>
           </ModalBody>
           <ModalFooter>
-            <PrimaryButton label={"Create Board"} />
+            <PrimaryButton
+              label={"Create Board"}
+              onClick={() => {
+                createBoard(boardName);
+              }}
+            />
           </ModalFooter>
         </ModalContent>
       </Modal>
