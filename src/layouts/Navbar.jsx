@@ -32,7 +32,9 @@ export const Navbar = ({ backButton, title, rightElement }) => {
           {title}
         </Text>
       </Flex>
-      <Flex align="center">{rightElement}</Flex>
+      <Flex align="center" zIndex={1000}>
+        {rightElement}
+      </Flex>
     </Flex>
   );
 };
