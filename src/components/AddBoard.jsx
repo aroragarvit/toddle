@@ -81,7 +81,7 @@ export const AddBoard = () => {
                   key={index}
                   bgColor={color.bg}
                   border={
-                    selectedColor == index ? "1px solid " + color.border : ""
+                    selectedColor === index ? "1px solid " + color.border : ""
                   }
                   h={8}
                   w={8}
