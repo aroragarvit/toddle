@@ -3,10 +3,12 @@ import { Navbar } from "../layouts/Navbar";
 import { useEffect, useState } from "react";
 import { getBoards } from "../functions/getBoards.jsx";
 import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 export const Dashboard = () => {
   const [boards, setBoards] = useState([]);
   const [loading, setLoading] = useState(true);
+  const nav = useNavigate();
 
   useEffect(() => {
     const getBoardsData = async () => {
@@ -44,6 +46,10 @@ export const Dashboard = () => {
                   border="1px solid"
                   borderColor={"gray.200"}
                   alignItems={"center"}
+                  onClick={() => {
+                    nav(`/boards/${boards.id ? boards.id : index}`);
+                  }}
+                  cursor={"pointer"}
                 >
                   <Box
                     h={24}
@@ -51,7 +57,13 @@ export const Dashboard = () => {
                     bgColor={"purple.100"}
                     roundedLeft={"xl"}
                   />
-                  <Text ml={4} fontWeight={"medium"} fontSize={["sm","sm", "md"]}>{board.boardName}</Text>
+                  <Text
+                    ml={4}
+                    fontWeight={"medium"}
+                    fontSize={["sm", "sm", "md"]}
+                  >
+                    {board.boardName}
+                  </Text>
                 </GridItem>
               );
             })}
