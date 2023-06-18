@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { Progress, Flex } from "@chakra-ui/react";
 
 export const AuthContext = createContext({
   user: null,
@@ -11,14 +12,17 @@ export const AuthContext = createContext({
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setUser(user);
       setIsAuthenticated(true);
+      setLoading(false);
     } else {
       setUser(null);
       setIsAuthenticated(false);
+      setLoading(false);
     }
   });
 
@@ -26,7 +30,13 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{ user, setIsAuthenticated, setUser, isAuthenticated }}
     >
-      {children}
+      {loading ? (
+        <Flex h={"100vh"} w={"100vw"} align={"center"} justify={"center"}>
+          <Progress size="xs" isIndeterminate />
+        </Flex>
+      ) : (
+        <>{children}</>
+      )}
     </AuthContext.Provider>
   );
 };

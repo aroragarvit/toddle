@@ -1,19 +1,15 @@
 import { Box, Flex, Text, Button } from "@chakra-ui/react";
 import { Navbar } from "../layouts/Navbar";
 import { handleGoogleSignIn } from "../functions/googleSignin";
-import { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { Navigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 export const Auth = () => {
-  const navigate = useNavigate();
   const { isAuthenticated } = useContext(AuthContext);
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/");
-    }
-  }, [isAuthenticated, navigate]);
-  return (
+  return isAuthenticated ? (
+    <Navigate to={"/"} />
+  ) : (
     <div>
       <Navbar backButton={false} title="toddle" />
       <Flex h={"calc(100vh - 5rem)"} justify="center" align="center">
