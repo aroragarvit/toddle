@@ -8,7 +8,6 @@ export const createBoard = async (boardName, color) => {
   const boardRef = firestore.collection("boards").doc();
   const boardId = boardRef.id;
   await boardRef.set({
-    boardId: "",
     boardColor: color,
     boardName: boardName,
     createdBy: user.uid,
@@ -24,4 +23,6 @@ export const createBoard = async (boardName, color) => {
     boardsId: firebase.firestore.FieldValue.arrayUnion(boardId),
     boardsName: firebase.firestore.FieldValue.arrayUnion(boardName),
   });
+
+  window.location.href = "/";
 };
