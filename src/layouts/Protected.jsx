@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
-import { auth } from "../config/firebaseConfig";
+import { AuthContext } from "../context/AuthContext";
 
 export const Protected = ({ children }) => {
-  const [authenticated, setAuthenticated] = useState(false);
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      setAuthenticated(true);
-    }
-  });
-  return <>{authenticated ? children : <Navigate to={"/auth"} />}</>;
+  const { isAuthenticated } = useContext(AuthContext);
+  return isAuthenticated ? <>{ children }</> : <Navigate to={"/auth"} />;
 };

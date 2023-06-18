@@ -1,4 +1,4 @@
-import { auth, firestore } from "../config/firebaseConfig.jsx";
+import { firestore } from "../config/firebaseConfig.jsx";
 import firebase from "firebase/compat/app";
 
 export const createBoard = async (boardName) => {
