@@ -66,7 +66,7 @@ export const Dashboard = () => {
                     <Box
                       h={24}
                       w={24}
-                      bgColor={"purple.100"}
+                      bgColor={board.boardColor ? board.boardColor.bg : "purple.100"}
                       roundedLeft={"xl"}
                     />
                     <Text

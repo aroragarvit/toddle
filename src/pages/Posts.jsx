@@ -2,6 +2,7 @@ import { Navbar } from "../layouts/Navbar";
 import { useEffect, useState } from "react";
 import { Box, Grid, GridItem, IconButton, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { AddBoard } from "../components/AddBoard";
 
 const boardData = {
   title: "Places around the world",
@@ -21,7 +22,7 @@ export const Posts = () => {
   ]);
   return (
     <div>
-      <Navbar title={boardData.title} rightElement={null} backButton={true} />
+      <Navbar title={boardData.title} rightElement={<AddBoard />} backButton={true} />
       <Box
         h={"100vh"}
         w={"full"}

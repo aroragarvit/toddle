@@ -101,7 +101,7 @@ export const AddBoard = () => {
             <PrimaryButton
               label={"Create Board"}
               onClick={() => {
-                createBoard(boardName, selectedColor);
+                createBoard(boardName, colors[selectedColor]);
               }}
             />
           </ModalFooter>
